@@ -5,12 +5,21 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("assets/anniversary-background.jpg") center center / cover no-repeat;
+  opacity: 0.20;
+}
 .grain { position: fixed; inset: 0; pointer-events: none; z-index: 10; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E"); }
 .nav { position: absolute; z-index: 3; top: 0; left: 0; width: 100%; padding: 28px 7%; display: flex; justify-content: space-between; align-items: center; }
 .brand { font-family: "Cormorant Garamond", serif; font-size: 23px; color: var(--wine); text-decoration: none; }
 .brand span { color: var(--rose); }
 .nav-link { color: var(--wine); text-decoration: none; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
-.hero { min-height: 760px; min-height: 100svh; display: grid; place-items: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 40%, #fffaf5 0%, #f8e9e6 42%, #eed7d6 100%); padding: 120px 22px 95px; }
+.hero { min-height: 760px; min-height: 100svh; display: grid; place-items: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 40%, rgba(255,250,245,.82) 0%, rgba(248,233,230,.76) 42%, rgba(238,215,214,.72) 100%); padding: 120px 22px 95px; }
 .hero:before, .hero:after { content: ""; position: absolute; border: 1px solid rgba(139,86,93,.18); border-radius: 50%; width: min(72vw, 700px); aspect-ratio: 1; }
 .hero:after { width: min(88vw, 860px); }
 .hero-glow { position: absolute; width: 340px; height: 340px; border-radius: 50%; background: rgba(255,255,255,.38); filter: blur(35px); }
@@ -43,9 +52,9 @@ h1 em, h2 em { color: var(--rose); font-family: "Great Vibes", cursive; font-wei
 .card-art { height: 100px; display: grid; place-items: center; font-size: 65px; font-family: serif; color: #bb777a; }
 .sun-art { color: #c08b72; }.flower-art { color: #a96f7a; }.moon-art { color: #8e707e; }
 .memory-card h3 { font-size: 29px; margin: 0 0 8px; }.memory-card p { color: #887476; font-size: 11px; line-height: 1.8; max-width: 230px; }
-.letter-section { position: relative; background: #ead4d2; padding: 115px 20px; overflow: hidden; }
+.letter-section { position: relative; background: rgba(234,212,210,.78); padding: 115px 20px; overflow: hidden; }
 .letter-backdrop { position: absolute; top: 6%; left: 50%; transform: translateX(-50%); font-family: "Cormorant Garamond", serif; font-size: clamp(50px, 12vw, 140px); white-space: nowrap; letter-spacing: .08em; color: rgba(255,255,255,.24); }
-.letter { position: relative; max-width: 700px; margin: auto; background: var(--cream); padding: clamp(28px, 6vw, 65px) clamp(24px, 7vw, 75px); box-shadow: 0 25px 70px rgba(100,57,65,.10); }
+.letter { position: relative; max-width: 700px; margin: auto; background: rgba(255,250,246,.94); padding: clamp(28px, 6vw, 65px) clamp(24px, 7vw, 75px); box-shadow: 0 25px 70px rgba(100,57,65,.10); }
 .letter-top, .letter-bottom { display: flex; justify-content: space-between; gap: 12px; font-size: 8px; letter-spacing: .15em; color: #b08a8a; }
 .letter-heart { margin-top: 40px; color: var(--rose); font-size: 28px; }
 .script { font: 42px "Great Vibes", cursive; color: var(--rose); margin: 5px 0 0; }
@@ -58,7 +67,7 @@ h1 em, h2 em { color: var(--rose); font-family: "Great Vibes", cursive; font-wei
 .promise-section h2 { margin-bottom: 20px; }
 .promise-section .muted { max-width: 500px; margin: 0 auto 28px; }
 .surprise-message { font: 32px "Great Vibes", cursive; color: var(--rose); margin-top: 25px; animation: fadeIn .7s ease both; }
-footer { padding: 25px 7%; display: flex; justify-content: space-between; background: #f0e0dd; color: #9d8182; font-size: 9px; letter-spacing: .1em; }
+footer { padding: 25px 7%; display: flex; justify-content: space-between; background: rgba(240,224,221,.82); color: #9d8182; font-size: 9px; letter-spacing: .1em; }
 .music-widget { position: fixed; z-index: 20; bottom: 20px; left: 20px; display: flex; align-items: center; gap: 12px; padding: 10px 15px 10px 10px; background: rgba(255,250,246,.94); border: 1px solid rgba(187,119,122,.22); box-shadow: 0 8px 30px rgba(81,48,53,.10); backdrop-filter: blur(12px); }
 .music-button { width: 34px; height: 34px; border: 0; border-radius: 50%; background: var(--wine); color: white; cursor: pointer; }
 .music-label { display: flex; flex-direction: column; gap: 3px; }.music-label strong { font-size: 10px; color: var(--wine); }.music-label span { font-size: 9px; color: var(--muted); }.music-note { color: var(--rose); margin-left: 6px; }
